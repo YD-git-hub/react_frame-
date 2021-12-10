@@ -1,0 +1,122 @@
+.Home {
+    height: 100%;
+    align-items: center;
+    background: url(../../../assets/img/frontImg/banner.png) no-repeat;
+    background-size: 100% 100%;
+
+    .header {
+        width: 100%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        height: 80px;
+        align-items: center;
+        background-color: #000;
+        opacity: 0.9;
+        color: #fff;
+        padding: 0 20px;
+
+        .ant-input {
+            width: 320px;
+            height: 36px;
+            border-radius: 0;
+            border: none;
+
+            &:hover {
+                border-right: none;
+                box-shadow: none;
+                border-right-width: 0px !important;
+            }
+
+            &:focus {
+                border-color: #d9d9d9;
+            }
+        }
+
+        .ant-input-search-button {
+            height: 36px;
+            border: none;
+
+            &:hover {
+                border-left: none;
+                box-shadow: none;
+            }
+
+            &:focus {
+                border-color: #d9d9d9;
+            }
+        }
+
+        .header_center {
+            align-items: center;
+
+            .header_center_item {
+                font-size: 12px;
+                padding: 0 30px;
+                height: 36px;
+                line-height: 36px;
+                background-color: #9A7457;
+            }
+        }
+    }
+
+    .content {
+        width: 100%;
+        background-color: #000;
+        opacity: 0.72;
+        padding: 60px 0;
+        color: #fff;
+        align-items: center;
+
+        .content_item {
+            align-items: center;
+
+            .item_top {
+                color: #9A7457;
+                margin-bottom: 30px;
+                font-size: 40px;
+            }
+
+            .item_btn {
+                width: 150px;
+                height: 50px;
+            }
+        }
+    }
+
+    .footer {
+        width: 100%;
+        align-items: center;
+        position: fixed;
+        bottom: 0;
+        left: 0;
+
+        .footer_left {
+            border-right: 1px solid #9A7457;
+        }
+
+        .footer_left,
+        .footer_right {
+            width: 50%;
+            height: 60px;
+            background-color: #fff;
+            border-top: 1px solid #9A7457;
+            text-align: center;
+            font-size: 18px;
+            font-weight: bold;
+            align-items: center;
+
+            img {
+                width: 20px;
+                height: 20px;
+                margin-right: 10px;
+            }
+        }
+
+        .platform {
+            text-decoration: none;
+            color: #000;
+        }
+
+    }
+}

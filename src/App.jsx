@@ -2,11 +2,12 @@ import './App.less';
 import router from "./router"
 import { BrowserRouter as Router ,Route,Switch } from "react-router-dom";
 import React, { Suspense } from 'react';
+import {Spin} from "antd";
 function App() {
   return (
     <Router>
       <div id="App">
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div className="justify-center items-center" style={{height:"100%"}}><Spin /></div>}>
           <Switch>
             {
               router.map((item,key) => {

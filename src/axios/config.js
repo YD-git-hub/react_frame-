@@ -1,7 +1,7 @@
 import axios from 'axios'; // 引入axios
 import QS from 'qs'; // 引入qs模块，用来序列化post类型的数据，后面会提到
 
-import {Message} from "element-react"
+import { message } from 'antd';
 let reqList = []
 let Cancel_url=['/api/Address/address','/api/Order/confirm_order','/api/index/createOrder','api/index/wx','/api/index/bage','/api/Sms/send']//拦截名单
 
@@ -36,10 +36,9 @@ const allowRequest = function (reqList, url) {
     }
   }
 }
-
 if (process.env.NODE_ENV === 'development') {
   //本地(开发)环境
-  axios.defaults.baseURL = process.env.VUE_APP_ONE_API;
+  axios.defaults.baseURL = process.env.REACT_APP_API;
 } else if (process.env.NODE_ENV === 'production') {
   //线上（开发）环境
   axios.defaults.baseURL = ''; // 一只老鹰
@@ -60,7 +59,7 @@ axios.interceptors.request.use(
       stopRepeatRequest(reqList, config.url, cancel, `${config.url} 请求被中断`);
     }
     // if (store.state.token) {
-    //   config.headers.token = store.state.token;
+      config.headers.token = '88db7816-60a0-4cf8-85c5-9a29ca422831';
     // }
     // if(config.url!='/api/index/search/searchName'){
 
@@ -74,11 +73,8 @@ axios.interceptors.request.use(
 // 响应拦截器
 axios.interceptors.response.use(
   response => {
-    setTimeout(() => {
-      allowRequest(reqList, response.config.url)
-    }, 1000);
+    allowRequest(reqList, response.config.url)
     if (response.status === 200) {
-      console.log(333)
       return response.data;
     }
   },
@@ -86,39 +82,24 @@ axios.interceptors.response.use(
     if (axios.isCancel(error)) {
       console.log(error.message);
     } else {
-      // 增加延迟，相同请求不得在短时间内重复发送
-      setTimeout(() => {
-        allowRequest(reqList, error.config.url)
-      }, 1000)
+      allowRequest(reqList, error.config.url)
     }
     if (error && error.response && error.response.status) {
       switch (error.response.status) {
         // 401: 未登录
         case 401:
-          Message({
-            type:'warning',
-            message:'401'
-          })
+          message.warning('401');
           break;
           // 404请求不存在
         case 404:
-          Message({
-            type:'warning',
-            message:'!网络请求不存在'
-          })
+          message.warning('!网络请求不存在');
           break;
           // 其他错误，直接抛出错误提示
         case 500:
-          Message({
-            type:'warning',
-            message:'!服务器出小差了'
-          })
+          message.warning('!服务器出小差了');
           break;
         default:
-          Message({
-            type:'warning',
-            message:error.response.data.message
-          })
+          message.warning(error.response.data.message);
           break;
       }
       return Promise.reject(error.response);

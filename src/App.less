@@ -1,9 +1,15 @@
-*{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-html,body,#root,#App{
+ul {
+  list-style: none;
+}
+html,
+body,
+#root,
+#App {
   height: 100%;
 }
 .flex-row {
@@ -61,6 +67,63 @@ html,body,#root,#App{
   align-items: flex-end;
 }
 
-.size14{
-  font-size: .875rem;
+.size14 {
+  font-size: 0.875rem;
+}
+
+//默认分页删除
+.ant-table-pagination.ant-pagination {
+  display: none;
+}
+
+// 删除按钮
+.del-btn {
+  color: red;
+}
+// 表格点击按钮
+.confirm-btn {
+  color: #1690ff;
+}
+
+// 列表框通用样式
+.table_info {
+  margin-bottom: 2rem;
+  .Pagination {
+    margin: 20px 0px;
+  }
+}
+
+// 修改点击删除按钮
+.ant-popover-inner-content {
+  .ant-popover-message {
+    font-size: 24px !important;
+    .anticon {
+      top: 11px !important;
+      font-size: 24px !important;
+    }
+    .ant-popover-message-title {
+      padding-left: 30px !important;
+    }
+  }
+  .ant-popover-buttons {
+    .ant-btn-sm {
+      height: auto !important;
+      font-size: 16px;
+    }
+  }
+}
+
+// Modal 页脚
+.ant-modal-footer{
+  text-align: center !important;
+}
+
+// 分页大小
+.ant-tabs-tab{
+  font-size: 20px !important;
+}
+// 返回
+.site-page-header {
+  // border-bottom: 1px solid rgb(235, 237, 240);
+  padding: 16px 0px !important;
 }

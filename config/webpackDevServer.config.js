@@ -102,10 +102,10 @@ module.exports = function (proxy, allowedHost) {
     public: allowedHost,
     // `proxy` is run between `before` and `after` `webpack-dev-server` hooks
     proxy:{
-      [process.env.VUE_APP_ONE_API]:{
-        target: process.env.VUE_APP_ONE_URL, 
+      [process.env.REACT_APP_API]:{
+        target: process.env.REACT_APP_URL, 
         changeOrigin: true , 
-        pathRewrite:{ ["^" + process.env.VUE_APP_ONE_API]: '' }
+        pathRewrite:{ ["^" + process.env.REACT_APP_API]: '' }
       }
     },
     before(app, server) {
