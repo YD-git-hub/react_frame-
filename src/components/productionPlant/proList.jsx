@@ -362,7 +362,6 @@ export default class role_module extends Component {
             </Button>
           </div>
         </Modal>
-
         <Modal
           title="企业资料"
           visible={this.state.openInfo}

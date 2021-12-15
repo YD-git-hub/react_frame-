@@ -158,6 +158,31 @@ const router = [
                 component: lazy(() => import('@/views/Home/Clampmes/index.jsx')),
                 exact: true,
             },
+            {
+                path: "/Home/product",// 产品管理产品列表
+                component: lazy(() => import('@/views/Home/Product/index.jsx')),
+                exact: true,
+            },
+            {
+                path: "/Home/addoroduct",// 产品管理添加产品
+                component: lazy(() => import('@/views/Home/Product/addoroduct.jsx')),
+                exact: true,
+            },
+            {
+                path: "/Home/poroductType",// 产品类型管理
+                component: lazy(() => import('@/views/Home/Product/poroductType.jsx')),
+                exact: true,
+            },
+            {
+                path: "/Home/specifications",// 产品规格管理
+                component: lazy(() => import('@/views/Home/Product/specifications.jsx')),
+                exact: true,
+            },
+            {
+                path: "/Home/StoresAdd",// 压板厂管理
+                component: lazy(() => import('@/views/Home/Stores/StoresAdd.jsx')),
+                exact: true,
+            },
         ]
     }
 ]

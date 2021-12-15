@@ -103,7 +103,7 @@ class Uploads extends Component {
     const uploadButton = (
       <div>
         {this.state.loading ? <LoadingOutlined /> : <PlusOutlined />}
-        <div style={{ marginTop: 8 }}>Upload</div>
+        <div style={{ marginTop: 8 }}>上传图片</div>
       </div>
     );
     return (

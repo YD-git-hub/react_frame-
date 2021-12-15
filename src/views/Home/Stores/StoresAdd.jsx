@@ -73,7 +73,7 @@ class business_datail extends Component {
       <div className="business_datail" style={{ padding: "0px 20px" }}>
         <PageHeader
           className="site-page-header"
-          onBack={() => this.props.active("1")}
+          onBack={() => this.props.history.go(-1)}
           title="返回"
         />
         <h2>添加生产工厂</h2>

@@ -100,16 +100,6 @@ export default class Sales_deatail extends Component {
       moduleTitle: "编辑",
       openInfo: false,
       loading: false,
-      options: [
-        {
-          value: "黄金糕",
-          label: "黄金糕",
-        },
-        {
-          value: "双皮奶",
-          label: "双皮奶",
-        },
-      ],
     };
   }
   check = (value, text) => {

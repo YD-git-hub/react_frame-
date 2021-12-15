@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import Upload from "@/components/Upload/Upload.jsx"
+import cityOptions from "@/utils/areadata.js"
 import { Form, Input, Button, Select,Cascader,Space,PageHeader,Image} from 'antd';
 import { EyeOutlined } from "@ant-design/icons";
 const { Option } = Select;
@@ -17,40 +18,6 @@ const tailLayout = {
     span: 16,
   },
 };
-const options = [
-  {
-    value: 'zhejiang',
-    label: 'Zhejiang',
-    children: [
-      {
-        value: 'hangzhou',
-        label: 'Hangzhou',
-        children: [
-          {
-            value: 'xihu',
-            label: 'West Lake',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    value: 'jiangsu',
-    label: 'Jiangsu',
-    children: [
-      {
-        value: 'nanjing',
-        label: 'Nanjing',
-        children: [
-          {
-            value: 'zhonghuamen',
-            label: 'Zhong Hua Men',
-          },
-        ],
-      },
-    ],
-  }
-];
 class business_datail extends Component {
   constructor(props) {
     super(props);
@@ -202,7 +169,7 @@ class business_datail extends Component {
           },
         ]}
         >
-          <Cascader options={options} onChange={this.onCityChange} placeholder="请选择公司地址" disabled={this.props.location.state.type!==2} />
+          <Cascader options={cityOptions} onChange={this.onCityChange} placeholder="请选择公司地址" disabled={this.props.location.state.type!==2} />
         </Form.Item>
         <Form.Item
         name="company_name"

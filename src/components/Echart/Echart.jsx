@@ -1,9 +1,12 @@
 import React, { Component } from "react";
 import ReactEcharts from "echarts-for-react";
-import "echarts/lib/chart/line";
-import "echarts/lib/component/tooltip";
-import "echarts/lib/component/title";
 export default class Echart extends Component {
+  constructor(props){
+    super(props)
+    this.state={
+      width:document.body.clientWidth-280
+    }
+  }
   getOption = () => {
     let category = [];
     let dottedBase = +new Date();
@@ -81,18 +84,23 @@ export default class Echart extends Component {
       ],
     };
   };
+  componentDidUpdate(){
+    
+  }
   render() {
     return (
-      <div>
-        <ReactEcharts
-          style={{ minHeight: "400px" }}
-          option={this.getOption()}
-          notMerge
-          lazyUpdate
-          theme={"theme_name"}
-          // onChartReady={this.onChartReadyCallback}
-          // onEvents={EventsDict}
-        />
+      <div className="justify-center">
+        <React.Fragment>
+          <ReactEcharts
+            style={{ minHeight: "400px",width:this.state.width}}
+            option={this.getOption()}
+            notMerge
+            lazyUpdate
+            theme={"theme_name"}
+            // onChartReady={this.onChartReadyCallback}
+            // onEvents={EventsDict}
+          />
+        </React.Fragment>
       </div>
     );
   }
