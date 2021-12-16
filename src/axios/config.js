@@ -3,7 +3,7 @@ import QS from 'qs'; // 引入qs模块，用来序列化post类型的数据，�
 
 import { message } from 'antd';
 let reqList = []
-let Cancel_url=['/api/Address/address','/api/Order/confirm_order','/api/index/createOrder','api/index/wx','/api/index/bage','/api/Sms/send']//拦截名单
+let Cancel_url=[]//拦截名单
 
 /**
  * 阻止重复请求
@@ -92,14 +92,14 @@ axios.interceptors.response.use(
           break;
           // 404请求不存在
         case 404:
-          message.warning('!网络请求不存在');
+          message.warning('网络请求不存在');
           break;
           // 其他错误，直接抛出错误提示
         case 500:
-          message.warning('!服务器出小差了');
+          message.error('服务器出小差了');
           break;
         default:
-          message.warning(error.response.data.message);
+          message.error(error.response.data.message);
           break;
       }
       return Promise.reject(error.response);
