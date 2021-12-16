@@ -1,7 +1,7 @@
 import './App.less';
-import router from "./router"
+import routers from "./router"
 import FrontendAuth from "./router/FrontendAuth";
-import { BrowserRouter as Router ,Route,Switch } from "react-router-dom";
+import { BrowserRouter as Router,Switch } from "react-router-dom";
 import React, { Suspense } from 'react';
 import {Spin} from "antd";
 function App() {
@@ -10,17 +10,7 @@ function App() {
       <div id="App">
         <Suspense fallback={<div className="justify-center items-center" style={{height:"100%"}}><Spin /></div>}>
           <Switch>
-            <FrontendAuth routerConfig={router} />
-            {/* {
-              router.map((item,key) => {
-                return (
-                  <Route exact={item.exact} path={item.path} key={key}
-                    render={props => (
-                      <item.component {...props} routes={item.children} />
-                    )} />
-                )
-              })
-            } */}
+            <FrontendAuth routerConfig={routers} />
           </Switch>
         </Suspense>
       </div>
