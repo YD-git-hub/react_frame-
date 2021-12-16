@@ -84,8 +84,14 @@ export default class Echart extends Component {
       ],
     };
   };
-  componentDidUpdate(){
-    
+  componentDidMount() {
+    // 监听窗口大小改变
+    window.addEventListener('resize', this.handleResize)
+  }
+  handleResize = e => {
+    this.setState({
+      width:e.target.innerWidth-280
+    })
   }
   render() {
     return (

@@ -129,7 +129,7 @@ export default class index extends Component {
     },2000)
   }
   render() {
-    const {thaName,name,loadings}=this.state
+    const {thaName,name,loadings,columns,data}=this.state
     return (
       <div className="business">
         <ul className="business_input flex-row justify-between">
@@ -161,7 +161,7 @@ export default class index extends Component {
           </li>
         </ul>
         <div className="business_table">
-          <Table columns={this.state.columns} dataSource={this.state.data} />
+          <Table columns={columns} dataSource={data} />
           <div className="justify-center Pagination">
             <Pagination defaultCurrent={1} total={50} onChange={this.onpageSize} />
           </div>
