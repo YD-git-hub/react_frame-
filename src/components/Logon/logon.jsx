@@ -8,6 +8,7 @@ export default class logon extends Component {
   }
   onFinish = (values) => {
     console.log("Received values of form: ", values);
+    sessionStorage.token="12121212"
     this.props.history.push("/Home/index");
   };
   forget = (index) => {

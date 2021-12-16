@@ -1,5 +1,6 @@
 import './App.less';
 import router from "./router"
+import FrontendAuth from "./router/FrontendAuth";
 import { BrowserRouter as Router ,Route,Switch } from "react-router-dom";
 import React, { Suspense } from 'react';
 import {Spin} from "antd";
@@ -9,7 +10,8 @@ function App() {
       <div id="App">
         <Suspense fallback={<div className="justify-center items-center" style={{height:"100%"}}><Spin /></div>}>
           <Switch>
-            {
+            <FrontendAuth routerConfig={router} />
+            {/* {
               router.map((item,key) => {
                 return (
                   <Route exact={item.exact} path={item.path} key={key}
@@ -18,7 +20,7 @@ function App() {
                     )} />
                 )
               })
-            }
+            } */}
           </Switch>
         </Suspense>
       </div>
