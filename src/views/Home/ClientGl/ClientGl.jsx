@@ -85,7 +85,9 @@ export default class index extends Component {
           address: "Sidney No. 1 Lake Park",
         },
       ],
-      value: "jack",
+      thaName: "jack",
+      name:'',
+      loadings:false
     };
   }
   componentDidMount() {
@@ -109,7 +111,25 @@ export default class index extends Component {
         break;
     }
   }
+  onChange = (event) => {
+    const target = event.target;
+    this.setState({
+      [target.name]:target.value,
+    })
+  };
+  searchBtn=()=>{
+    console.log(this.state.thaName,this.state.name)
+    this.setState({
+      loadings:true
+    })
+    setTimeout(()=>{
+      this.setState({
+        loadings:false
+      })
+    },2000)
+  }
   render() {
+    const {thaName,name,loadings}=this.state
     return (
       <div className="business">
         <ul className="business_input flex-row justify-between">
@@ -117,21 +137,25 @@ export default class index extends Component {
             <span>企业名称</span>
             <Input
               placeholder="请输入内容"
+              name="thaName"
               style={{ width: 240 }}
-              defaultValue={this.state.value}
+              value={thaName}
+              onChange={this.onChange}
             />
           </li>
           <li className="ul_li items-center">
             <span>客户名称</span>
             <Input
               placeholder="请输入内容"
+              name="name"
               style={{ width: 240 }}
-              defaultValue={this.state.value}
+              value={name}
+              onChange={this.onChange}
             />
           </li>
           <li className="ul_li items-center">
             <Space size="middle">
-              <Button type="primary">查询</Button>
+              <Button type="primary" onClick={this.searchBtn} loading={loadings}>查询</Button>
               <Button>重置</Button>
             </Space>
           </li>

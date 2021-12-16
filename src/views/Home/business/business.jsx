@@ -101,7 +101,10 @@ export default class index extends Component {
           address: "Sidney No. 1 Lake Park",
         },
       ],
-      value: "jack",
+      name: "jack",
+      type:'jack',
+      state:'jack',
+      loadings:false
     };
   }
   componentDidMount() {
@@ -127,10 +130,24 @@ export default class index extends Component {
         break;
     }
   }
-  onChange = (value) => {
-    console.log(`selected ${value}`);
+  onChange = (value,type) => {
+    this.setState({
+      [type]:value
+    })
   };
+  searchBtn=()=>{
+    console.log(this.state.name,this.state.type,this.state.state)
+    this.setState({
+      loadings:true
+    })
+    setTimeout(()=>{
+      this.setState({
+        loadings:false
+      })
+    },2000)
+  }
   render() {
+    const {name,type,state,loadings}=this.state
     return (
       <div className="business">
         <ul className="business_input flex-row justify-between">
@@ -139,7 +156,8 @@ export default class index extends Component {
             <Input
               placeholder="请输入内容"
               style={{ width: 240 }}
-              defaultValue={this.state.value}
+              value={name}
+              onChange={(event)=>{ return this.onChange(event.target.value,'name') }}
             />
           </li>
           <li className="ul_li items-center">
@@ -147,10 +165,11 @@ export default class index extends Component {
             <Select
               showSearch
               style={{ width: 240 }}
-              placeholder="Select a person"
+              placeholder="请选择企业类型"
+              name="type"
               optionFilterProp="children"
-              onChange={this.onChange}
-              defaultValue={this.state.value}
+              onChange={(value)=>{ return this.onChange(value,'type') }}
+              value={type}
             >
               <Option value="jack">Jack</Option>
               <Option value="lucy">Lucy</Option>
@@ -162,10 +181,11 @@ export default class index extends Component {
             <Select
               showSearch
               style={{ width: 240 }}
-              placeholder="Select a person"
+              placeholder="请选择状态"
+              name="state"
               optionFilterProp="children"
-              onChange={this.onChange}
-              defaultValue={this.state.value}
+              onChange={(value)=>{ return this.onChange(value,'state') }}
+              value={state}
             >
               <Option value="jack">Jack</Option>
               <Option value="lucy">Lucy</Option>
@@ -174,7 +194,7 @@ export default class index extends Component {
           </li>
           <li className="ul_li items-center">
             <Space size="middle">
-              <Button type="primary">查询</Button>
+              <Button type="primary" onClick={this.searchBtn} loading={loadings}>查询</Button>
               <Button>重置</Button>
             </Space>
           </li>
